@@ -22,6 +22,9 @@ class jingdong(object):
         self.wait = WebDriverWait(self.browser, 30)
         self.url = r"https://m.jd.com/"
 
+    def __del__(self):
+        self.browser.close()
+
     def options(self):
         chrome_options = webdriver.ChromeOptions()
         chrome_options.add_argument('--headless')
