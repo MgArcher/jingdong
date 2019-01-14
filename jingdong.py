@@ -14,6 +14,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 
+# 京东秒杀信息
 class jingdong(object):
     def __init__(self):
         chrome_options = self.options()
