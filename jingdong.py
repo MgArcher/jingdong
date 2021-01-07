@@ -19,6 +19,14 @@ class jingdong(object):
     def __init__(self):
         chrome_options = self.options()
         self.browser = webdriver.Chrome(chrome_options=chrome_options)
+        # 过检测
+        self.browser.execute_cdp_cmd("Page.addScriptToEvaluateOnNewDocument", {
+          "source": """
+            Object.defineProperty(navigator, 'webdriver', {
+              get: () => undefined
+            })
+          """
+        })
         self.wait = WebDriverWait(self.browser, 30)
         self.url = r"https://m.jd.com/"
 
